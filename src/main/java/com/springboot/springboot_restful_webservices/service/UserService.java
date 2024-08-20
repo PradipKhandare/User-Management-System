@@ -1,18 +1,19 @@
 package com.springboot.springboot_restful_webservices.service;
 
+import com.springboot.springboot_restful_webservices.DTO.UserDto;
 import com.springboot.springboot_restful_webservices.entity.User;
 
 import java.util.List;
 
 public interface UserService {
 
-    User createuser(User user);
+    UserDto createuser(UserDto user);
 
-    User getUserById(Long id);
+    UserDto getUserById(Long id);
 
-    List<User> getAllUsers();
+    List<UserDto> getAllUsers();
 
-    User updateUser(User user);
+    UserDto updateUser(UserDto user);
 
     void deleteUser(Long id);
 }
