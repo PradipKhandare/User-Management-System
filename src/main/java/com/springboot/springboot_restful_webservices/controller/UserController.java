@@ -5,6 +5,7 @@ import com.springboot.springboot_restful_webservices.entity.User;
 import com.springboot.springboot_restful_webservices.exceptions.ErrorDetails;
 import com.springboot.springboot_restful_webservices.exceptions.ResourceNotFoundException;
 import com.springboot.springboot_restful_webservices.service.UserService;
+import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -23,7 +24,8 @@ public class UserController {
 
     //Create user rest-api
 
-    //http://localhost:8080/api/users/create
+    //http://localhost:8080/api/users/create\
+    @Valid
     @PostMapping("/create")
     public ResponseEntity<UserDto> createUser(@RequestBody UserDto user) {
         UserDto user1 = userService.createuser(user);
@@ -47,6 +49,7 @@ public class UserController {
         return new ResponseEntity<>(users, HttpStatus.OK);
     }
 
+    @Valid
     @PutMapping("/{id}")
     public ResponseEntity<UserDto> updateUser(@PathVariable("id") Long userId, @RequestBody UserDto user) {
         user.setId(userId);
